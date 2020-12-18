@@ -8,10 +8,12 @@ from Entities import engine
 class UserModule:
 
     def __init__(self):
+        
         created_session_maker = sessionmaker(bind=engine)
         self.session: Session = created_session_maker()
 
     def __del__(self):
+        
         self.session.close()
 
     def add_user(self, users: List[User]):
@@ -35,7 +37,9 @@ class UserModule:
         return self.session.query(User).filter(*filters).all()
 
     def del_user(self, user: User):
+        
         self.session.delete(user)
 
     def accept_updates(self):
+        
         self.session.commit()

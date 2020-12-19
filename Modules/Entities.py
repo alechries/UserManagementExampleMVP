@@ -21,6 +21,7 @@ class User(Base):
     profession = Column(String(250), nullable=False)
 
     def __init__(self, name, surname, profession):
+
         self.name = name
         self.surname = surname
         self.profession = profession

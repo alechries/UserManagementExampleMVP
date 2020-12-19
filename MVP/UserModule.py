@@ -1,8 +1,8 @@
-from Entities import User
+from Modules.Entities import User
 from typing import List
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
-from Entities import engine
+from Modules.Entities import engine
 
 
 class UserModule:
@@ -10,17 +10,16 @@ class UserModule:
     def __init__(self):
         
         created_session_maker = sessionmaker(bind=engine)
-        self.session: Session = created_session_maker()
+        self.__session: Session = created_session_maker()
 
     def __del__(self):
-        
-        self.session.close()
+        self.__session.close()
 
-    def add_user(self, users: List[User]):
+    def add_users(self, users: List[User]):
 
         for user in users:
-            self.session.add(user)
-        self.session.commit()
+            self.__session.add(user)
+        self.__session.commit()
 
     def get_user(self, name=None, surname=None, profession=None) -> List[User]:
 
@@ -34,12 +33,14 @@ class UserModule:
         operation(surname, User.surname == surname)
         operation(profession, User.profession == profession)
 
-        return self.session.query(User).filter(*filters).all()
+        return self.__session.query(User).filter(*filters).all()
 
     def del_user(self, user: User):
         
-        self.session.delete(user)
+        self.__session.delete(user)
+        self.__session.commit()
 
-    def accept_updates(self):
-        
-        self.session.commit()
+    def del_user_by_id(self, user_id: int):
+
+        self.__session.query(User).filter(User.id == user_id).delete()
+        self.__session.commit()

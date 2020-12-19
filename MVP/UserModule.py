@@ -1,8 +1,8 @@
 from Modules.Entities import User
+from Modules.Entities import engine
 from typing import List
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
-from Modules.Entities import engine
 
 
 class UserModule:

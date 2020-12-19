@@ -13,6 +13,7 @@ class UserModule:
         self.__session: Session = created_session_maker()
 
     def __del__(self):
+        
         self.__session.close()
 
     def add_users(self, users: List[User]):

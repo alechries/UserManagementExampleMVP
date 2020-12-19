@@ -1,8 +1,7 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import create_engine
 
 engine = create_engine('sqlite:///sqlalchemy.db')
 created_session_maker = sessionmaker(bind=engine)

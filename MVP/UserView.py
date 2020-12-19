@@ -1,7 +1,7 @@
 from MVP.UserModule import UserModule
 from Modules.Design import Ui_MainWindow
-from PyQt5 import QtWidgets, QtCore
 from Modules.Entities import User
+from PyQt5 import QtWidgets, QtCore
 
 
 class UserView(QtWidgets.QMainWindow):

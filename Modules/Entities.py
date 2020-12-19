@@ -3,6 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 from sqlalchemy.ext.declarative import declarative_base
 
+# TODO !!!
 engine = create_engine('sqlite:///sqlalchemy.db')
 created_session_maker = sessionmaker(bind=engine)
 session: Session = created_session_maker()

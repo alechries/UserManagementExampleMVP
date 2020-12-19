@@ -1,9 +1,7 @@
-from MVP.UserModule import UserModule
-from MVP.UserView import UserView
+from __future__ import annotations
 from MVP.UserPresenter import UserPresenter
+
 
 if __name__ == '__main__':
     # Start on initialization
-    # Test
-    # Hello
     presenter = UserPresenter()

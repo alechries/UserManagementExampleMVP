@@ -5,6 +5,7 @@ from Modules.Entities import User
 
 
 class UserView(QtWidgets.QMainWindow):
+    
     def __init__(self, module: UserModule):
 
         super(UserView, self).__init__()
